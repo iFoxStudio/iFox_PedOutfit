@@ -10,7 +10,7 @@ return {
 
     menu = {
         mainMenu = 'Bolsa Ped',
-        title = 'Abir Bolsa',
+        title = 'Abrir Bolsa',
         description = 'Abre a bolsa de roupas do seu ped',
     }
 }
