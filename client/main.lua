@@ -5,8 +5,6 @@ local Human = { -- Coloque os peds que não poderão acessar o comando ped mala 
     [`mp_f_freemode_01`] = true, 
 }
 
-local firstRun = false
-
 RegisterCommand('pedmala', function(source, args, raw)
     local ped = PlayerPedId()
     local hashPed = GetEntityModel(ped)
