@@ -5,6 +5,8 @@ local Human = { -- Coloque os peds que não poderão acessar o comando ped mala 
     [`mp_f_freemode_01`] = true, 
 }
 
+local firstRun = false
+
 RegisterCommand('pedmala', function(source, args, raw)
     local ped = PlayerPedId()
     local hashPed = GetEntityModel(ped)
@@ -29,20 +31,18 @@ RegisterCommand('pedmala', function(source, args, raw)
 end)
 
 function OpenMenu()
+
     local mainMenuID = "illenium_appearance_main_menu"
     local mainMenu = {
         id = mainMenuID
     }
     local menuItems = {}
 
-
-    local changeOutfitMenuID = "illenium_appearance_change_outfit_menu"
-
     local outfitMenuItems = {
         {
             title = config.menu.title,
             description = config.menu.description,
-            menu = changeOutfitMenuID
+            event = 'qb-clothing:client:openOutfitMenu'
         }
     }
     mainMenu.title = config.menu.mainMenu
@@ -50,7 +50,6 @@ function OpenMenu()
         menuItems[#menuItems + 1] = outfitMenuItems[i]
     end
     mainMenu.options = menuItems
-
     lib.registerContext(mainMenu)
     lib.showContext(mainMenuID)
 end
